@@ -1,37 +1,37 @@
 class ball{
-    maxDist=5;
+    maxDist=10;
     s=10;
     constructor(_pos){
         this.pos=createVector(_pos.x,_pos.y);
         this.mov=createVector(0,0);
         this.dirDeg=random(0,360);
     }
-    getNewDir(){this.dirDeg=random(0,360);}
+    getNewDir(){this.dirDeg+=int(random(-60,60));}
     move(){
         
         if(int(random(1,100))==10){
             this.getNewDir();
         }
-        this.mov.add(p5.Vector.fromAngle(radians(this.dirDeg), 0.05));
-        this.mov.mult(0.4);
+        this.mov.add(p5.Vector.fromAngle(radians(this.dirDeg), 1).mult(0.1));
+        this.mov.mult(0.7);
         this.mov.limit(this.maxDist);
         this.pos.add(this.mov);
     }
     walls(){
         if(this.pos.x-this.s/2<0){
-            this.mov.x+=20;
+            this.mov.x+=5;
             this.getNewDir();
         }
         if(this.pos.x+this.s/2>width){
-            this.mov.x-=20;
+            this.mov.x-=5;
             this.getNewDir();
         }
         if(this.pos.y-this.s/2<0){
-            this.mov.y+=20;
+            this.mov.y+=5;
             this.getNewDir();
         }
         if(this.pos.y+this.s/2>height){
-            this.mov.y-=20;
+            this.mov.y-=5;
             this.getNewDir();
         }
     }

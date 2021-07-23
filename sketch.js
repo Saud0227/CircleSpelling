@@ -2,7 +2,7 @@ let bList=[],bN=100;
 
 
 function setup() {
-  createCanvas(400,400);
+  createCanvas(600,600);
   for (let i = 0; i < bN; i++) {
     bList[i]=new ball(createVector(random(0,width),random(0,height)));
   }
