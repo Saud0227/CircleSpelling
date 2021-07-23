@@ -1,8 +1,42 @@
 class ball{
-    maxDist=10;
+    maxDist=5;
     s=10;
-    constructor(_pos,_s){
-       this.pos=createVector(_pos.x,_pos,y);
-       this.mov=createVector(0,0);
+    constructor(_pos){
+        this.pos=createVector(_pos.x,_pos.y);
+        this.mov=createVector(0,0);
+        this.dirDeg=random(0,360);
+    }
+    getNewDir(){this.dirDeg=random(0,360);}
+    move(){
+        
+        if(int(random(1,100))==10){
+            this.getNewDir();
+        }
+        this.mov.add(p5.Vector.fromAngle(radians(this.dirDeg), 0.05));
+        this.mov.mult(0.4);
+        this.mov.limit(this.maxDist);
+        this.pos.add(this.mov);
+    }
+    walls(){
+        if(this.pos.x-this.s/2<0){
+            this.mov.x+=20;
+            this.getNewDir();
+        }
+        if(this.pos.x+this.s/2>width){
+            this.mov.x-=20;
+            this.getNewDir();
+        }
+        if(this.pos.y-this.s/2<0){
+            this.mov.y+=20;
+            this.getNewDir();
+        }
+        if(this.pos.y+this.s/2>height){
+            this.mov.y-=20;
+            this.getNewDir();
+        }
+    }
+    draw(){
+        fill(0);
+        ellipse(this.pos.x,this.pos.y,this.s);
     }
 }
