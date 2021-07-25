@@ -1,11 +1,13 @@
 class ball{
     maxDist=10;
     s=20;
-    constructor(_pos){
+    list=[];
+    constructor(_pos,_i,_bl){
         this.pos=createVector(_pos.x,_pos.y);
         this.mov=createVector(0,0);
         this.dirDeg=random(0,360);
-
+        this.index=_i;
+        this.list=_bl
         //-----------------------
         this.c=createVector(0,0,0);
         this.cS=150;
@@ -42,8 +44,12 @@ class ball{
     }
     draw(){
         fill(this.c.x,this.c.y,this.c.z,this.cS);
-        noStroke();
         ellipse(this.pos.x,this.pos.y,this.s);
+        for (let i = 0; i < this.list.length; i++) {
+            if(i!=this.index){
+                //circle col detection
+            }            
+        }
     }
     tick(){
         this.walls();
