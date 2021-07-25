@@ -1,4 +1,10 @@
 let bList=[],bN=100;
+let fontArcade;
+let tmpL;
+
+function preload() {
+  fontArcade = loadFont('assets/ARCADECLASSIC.TTF',function(){console.log("font loaded")},function(){console.log("font failed to load");});
+}
 
 
 function setup() {
@@ -7,6 +13,7 @@ function setup() {
     bList[i]=new ball(createVector(random(0,width),random(0,height)));
   }
   angleMode(DEGREES);
+  tmpL=new letter(0,300,300);
 }
 
 function draw() {
@@ -16,5 +23,6 @@ function draw() {
     bList[i].move();
     bList[i].draw(); 
   }
+  tmpL.dispL();
 
 }
