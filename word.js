@@ -2,6 +2,7 @@ class words{
     constructor(_x,){
         this.word=[]
         this.spaces=0;
+        this.sumDist=0;
         //this.letters=[];
         //try{
         //    for (let i = 0; i < _x.length; i++) {
@@ -17,13 +18,16 @@ class words{
             if(_x[i]==-1){
                 this.spaces++;
                 tmpI++;
-                this.word[tmpI]=[]
+                this.word[tmpI]=[];
+                this.sumDist+=spaceDist;
             }else{
                 this.word[tmpI].push(_x[i]);
+                this.sumDist+=charBox[_x[i]];
             }
+
             
         }
-        console.log(this.word,this.spaces);
+        console.log(this.word,this.spaces,"|", this.sumDist);
     }
 }
 
