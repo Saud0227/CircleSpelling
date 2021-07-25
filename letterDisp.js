@@ -11,7 +11,7 @@ class letter{
         push();
         translate(this.pos.x,this.pos.y);
         rotate(this.deg);
-        textSize(32*this.s);
+        textSize(64*this.s);
         text(this.letter,0,0);
         pop();
     }

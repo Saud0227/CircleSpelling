@@ -13,7 +13,8 @@ function setup() {
     bList[i]=new ball(createVector(random(0,width),random(0,height)));
   }
   angleMode(DEGREES);
-  tmpL=new letter(0,300,300);
+  tmpL=new letter(0<,300,300);
+  textFont(fontArcade);
 }
 
 function draw() {
