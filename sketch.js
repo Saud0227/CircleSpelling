@@ -1,7 +1,8 @@
 let bList=[],bN=100;
 let activeL=[];
 let fontArcade;
-let vor;
+let vor=false;
+let b = true;
 // #region 
 //---------------------
 let char =    ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
@@ -26,13 +27,14 @@ function setup() {
   rectMode(CENTER);
   baColGlobal(0,200,10);
 
-  
-  // vor = new vortex(300,300,100);
-  // console.log(vor)
+
+  vor = new vortex(300,300,300);
+  console.log(vor);
 }
 
 function draw() {
   background(200);
+  //console.log(vor.satelitePoints);
   for (let i = 0; i < bList.length; i++) {
     bList[i].tick();
   }
@@ -41,12 +43,12 @@ function draw() {
       activeL[i].dispL();
     }
   }
-  // for (let i = 0; i < vor.satelitePoints.length; i++) {
-  //   fill(255,0,0);
-  //   let tmpP = vor.satelitePoints[i];
-  //   ellipse(tmpP.x,tmpP.y,30,30);
+  for (let i = 0; i < vor.satelitePoints.length; i++) {
+    fill(255,0,0);
+    let tmpP = vor.satelitePoints[i];
+    ellipse(tmpP.x,tmpP.y,30,30);
     
-  // }
+  }
 }
 
 
