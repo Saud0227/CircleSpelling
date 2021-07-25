@@ -9,7 +9,7 @@ class letter{
 
     dispL(){
         push();
-        translate(_x,_y);
+        translate(this.pos.x,this.pos.y);
         rotate(this.deg);
         textSize(32*this.s);
         text(this.letter,0,0);
