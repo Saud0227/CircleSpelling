@@ -1,6 +1,6 @@
 let bList=[],bN=100;
 let fontArcade;
-let tmpL;
+let tmpW;
 
 function preload() {
   fontArcade = loadFont('assets/ARCADECLASSIC.TTF',function(){console.log("font loaded")},function(){console.log("font failed to load");});
@@ -14,6 +14,7 @@ function setup() {
   }
   angleMode(DEGREES);
   textFont(fontArcade);
+  tmpW=new word([0,1,2,3,4]);
 }
 
 function draw() {
