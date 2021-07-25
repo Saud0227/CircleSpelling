@@ -2,7 +2,7 @@ class letter{
     constructor(_i,_x,_y){
         this.letter=char[_i];
         this.s=1;
-        this.pos=createVector(_x,_y);
+        this.pos=createVector(_x,_y-5);
         this.deg=0;
     }
 

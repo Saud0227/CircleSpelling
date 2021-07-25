@@ -2,12 +2,13 @@ let bList=[],bN=100;
 let activeL=[];
 let fontArcade;
 let tmpW;
-
+// #region 
 //---------------------
-let char = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-let charBox = [32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,];
-let spaceDist = 64;
+let char =    ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+let charBox = [ 34,  34,  34,  34,  34,  34,  34,  34,  34,  34,  34,  38,  34,  34,  34,  34,  34,  34,  34,  30,  34,  34,  34,  34,  34,  34,  34,  34,  34,  34,  34,  34,  34,  34,  34,  34];
+let spaceDist = 20;
 //---------------------
+// #endregion
 
 function preload() {
   fontArcade = loadFont('assets/ARCADECLASSIC.TTF',function(){console.log("font loaded")},function(){console.log("font failed to load");});
@@ -21,7 +22,8 @@ function setup() {
   }
   angleMode(DEGREES);
   textFont(fontArcade);
-  tmpW=new words([0,1,-1,2,3,-1,4]);
+  textAlign(CENTER, CENTER);
+  rectMode(CENTER);
 }
 
 function draw() {
@@ -30,6 +32,12 @@ function draw() {
     bList[i].walls();
     bList[i].move();
     bList[i].draw(); 
+  }
+  rect(tmpW.pos.x,tmpW.pos.y,tmpW.sumDist,2);
+  if(activeL.length>0){
+    for (let i = 0; i < activeL.length; i++) {
+      activeL[i].dispL();
+    }
   }
 }
 

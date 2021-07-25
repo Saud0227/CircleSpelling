@@ -1,33 +1,36 @@
 class words{
-    constructor(_x,){
-        this.word=[]
+    constructor(_l,_x,_y){
+        this.pos=createVector(_x,_y);
+        this.word=_l;
+        this.letterPos=[];
+        this.s=1;
         this.spaces=0;
+        this.charN=this.word.length;
         this.sumDist=0;
-        //this.letters=[];
-        //try{
-        //    for (let i = 0; i < _x.length; i++) {
-        //        this.letters[i]=new letter(_x[i],0,0);
-        //    }
-        //} catch (error){
-        //    console.log("word input not an array" + error);
-        //}
-        //console.log(this.letters);
-        let tmpI=0;
-        this.word[tmpI]=[];
-        for (let i = 0; i < _x.length; i++) {
-            if(_x[i]==-1){
-                this.spaces++;
-                tmpI++;
-                this.word[tmpI]=[];
+        let tmpD=0;
+        for (let i = 0; i < this.word.length; i++) {
+            if(this.word[i]==-1){
                 this.sumDist+=spaceDist;
+                this.spaces++;
+                this.letterPos[i]=-1;
             }else{
-                this.word[tmpI].push(_x[i]);
-                this.sumDist+=charBox[_x[i]];
+                this.letterPos[i]=this.sumDist+charBox[this.word[i]]/2;
+                this.sumDist+=charBox[this.word[i]];
             }
 
             
         }
-        console.log(this.word,this.spaces,"|", this.sumDist);
+        for (let i = 0; i < this.letterPos.length; i++) {
+            if(this.letterPos[i]!=-1){
+                this.letterPos[i]+=this.pos.x-this.sumDist/2;
+            }
+        }
+        for (let i = 0; i < this.letterPos.length; i++) {
+            if(this.letterPos[i]!=-1){
+                activeL.push(new letter(this.word[i],this.letterPos[i],this.pos.y));
+            }
+            
+        }
     }
 }
 
