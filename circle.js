@@ -20,19 +20,19 @@ class ball{
     walls(){
         if(this.pos.x-this.s/2<0){
             this.mov.x+=5;
-            this.getNewDir();
+            this.dirDeg=90;
         }
         if(this.pos.x+this.s/2>width){
             this.mov.x-=5;
-            this.getNewDir();
+            this.dirDeg=270;
         }
         if(this.pos.y-this.s/2<0){
             this.mov.y+=5;
-            this.getNewDir();
+            this.dirDeg=180;
         }
         if(this.pos.y+this.s/2>height){
             this.mov.y-=5;
-            this.getNewDir();
+            this.dirDeg=0;
         }
     }
     draw(){
