@@ -1,10 +1,15 @@
 class ball{
     maxDist=10;
-    s=10;
+    s=20;
     constructor(_pos){
         this.pos=createVector(_pos.x,_pos.y);
         this.mov=createVector(0,0);
         this.dirDeg=random(0,360);
+
+        //-----------------------
+        this.c=createVector(0,0,0);
+        this.cS=150;
+        //-----------------------
     }
     getNewDir(){this.dirDeg+=int(random(-60,60));}
     move(){
@@ -36,7 +41,29 @@ class ball{
         }
     }
     draw(){
-        fill(0);
+        fill(this.c.x,this.c.y,this.c.z,this.cS);
+        noStroke();
         ellipse(this.pos.x,this.pos.y,this.s);
     }
+    tick(){
+        this.walls();
+        this.move();
+        this.draw();
+    }
 }
+
+// #region 
+function baColGlobal(_r,_g,_b,_s){
+    for (let i = 0; i < bList.length; i++) {
+        bList[i].c.set(_r,_g,_b);
+        if(typeof _s=="number"){
+            bList[i].cS=_s;
+        }
+    }
+}
+
+
+
+
+
+// #endregion

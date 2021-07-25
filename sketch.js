@@ -24,16 +24,14 @@ function setup() {
   textFont(fontArcade);
   textAlign(CENTER, CENTER);
   rectMode(CENTER);
+  baColGlobal(0,200,10);
 }
 
 function draw() {
   background(200);
   for (let i = 0; i < bList.length; i++) {
-    bList[i].walls();
-    bList[i].move();
-    bList[i].draw(); 
+    bList[i].tick();
   }
-  rect(tmpW.pos.x,tmpW.pos.y,tmpW.sumDist,2);
   if(activeL.length>0){
     for (let i = 0; i < activeL.length; i++) {
       activeL[i].dispL();
