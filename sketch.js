@@ -18,7 +18,7 @@ function preload() {
 function setup() {
   createCanvas(600,600);
   for (let i = 0; i < bN; i++) {
-    bList[i]=new ball(createVector(random(0,width),random(0,height)));
+    bList[i]=new ball(createVector(random(0,width),random(0,height)),i,bList);
   }
   angleMode(DEGREES);
   textFont(fontArcade);
