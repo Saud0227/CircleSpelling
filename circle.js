@@ -42,14 +42,24 @@ class ball{
             this.dirDeg=0;
         }
     }
-    draw(){
-        fill(this.c.x,this.c.y,this.c.z,this.cS);
-        ellipse(this.pos.x,this.pos.y,this.s);
+    ballCol(){
+        let tmpV=createVector(0,0);
         for (let i = 0; i < this.list.length; i++) {
             if(i!=this.index){
-                //circle col detection
+                let tmpB = this.list[i];
+                if(dist(this.pos.x,this.pos.y,tmpB.pos.x,tmpB.pos.y)<this.s){
+                    tmppV=createVector(tmpB.pos.x-this.pos.x,tmpB.pos.y-this.pos.y);
+                    tmppV.normalize();
+                    tmpV.add(tmppV);
+                }
             }            
         }
+        tmpV.mult(10);
+    }
+    draw(){
+        fill(this.c.x,this.c.y,this.c.z,this.cS);
+        noStroke();
+        ellipse(this.pos.x,this.pos.y,this.s);
     }
     tick(){
         this.walls();
