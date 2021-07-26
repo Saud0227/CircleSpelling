@@ -16,6 +16,7 @@ class ball{
         //-----------------------
         this.vorTI=false;
         this.vorT=false;
+
     }
     getNewDir(){this.dirDeg+=int(random(-60,60));}
 
@@ -98,7 +99,7 @@ class ball{
                 }
             }            
         }
-    }
+    }3
     draw(){
         fill(this.c.x,this.c.y,this.c.z,this.cS);
         noStroke();
@@ -111,7 +112,7 @@ class ball{
             this.move();
             this.vorT=false;
         }else{
-            //this.vorMov();
+            this.vorMov();
         }
         this.draw();
     }

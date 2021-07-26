@@ -29,7 +29,6 @@ function setup() {
 
 
   vor = new vortex(300,300,300);
-  console.log(vor);
 }
 
 function draw() {

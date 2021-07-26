@@ -6,12 +6,10 @@ class vortex{
         this.satelitePoints=[];
         this.backup=[];
         for (let i = 0; i < this.nSatelitePoints; i++) {
-           let tmpV=createVector(int(i/3))
-            tmpV.mult(this.r);
-            this.satelitePoints[i] = createVector(this.pos.x + tmpV.x, this.pos.y + tmpV.y);
-            this.backup[i] = createVector(this.pos.x + tmpV.x, this.pos.y + tmpV.y);
-            console.log(this.satelitePoints[i]);
+            let tmpV = p5.Vector.fromAngle(radians(360/this.nSatelitePoints*i));tmpV.mult(this.r);
+            this.satelitePoints[i] = createVector(this.pos.x + tmpV.x, this.pos.y + tmpV.y); 
         }
         this.backup=this.satelitePoints;
+        console.log(this)
     }
 }
