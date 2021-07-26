@@ -1,8 +1,11 @@
-let bList=[],bN=100;
+let bList=[],bN=1;
 let activeL=[];
 let fontArcade;
 let vor=false;
 let b = true;
+let bT=0;
+
+let check=[];
 // #region 
 //---------------------
 let char =    ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
@@ -33,7 +36,6 @@ function setup() {
 
 function draw() {
   background(200);
-  //console.log(vor.satelitePoints);
   for (let i = 0; i < bList.length; i++) {
     bList[i].tick();
   }
@@ -50,6 +52,11 @@ function draw() {
   }
 }
 
+function logSat(){
+  check=vor.satelitePoints;
+  console.log(check);
+  b=false;
+}
 
 
 //Input == All chars == their index

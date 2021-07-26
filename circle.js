@@ -52,13 +52,11 @@ class ball{
         if(dist(this.pos.x,this.pos.y,this.vorT.x,this.vorT.y)<vor.r/5){
             console.log("!",tmpSL);
             this.vorTI++;
-            console.log("!!",tmpSL);
             if(this.vorTI>=tmpSL.length){this.vorTI=0;}
             //console.log(tmpSL[this.vorTI]);
-            console.log("!!!",tmpSL);
             this.vorT.set(tmpSL[this.vorTI]);
             //console.log(this.vorTI,this.vort);
-            b=true;
+            //b=true;
 
         }
         this.mov.mult(0.7);
@@ -99,22 +97,30 @@ class ball{
                 }
             }            
         }
-    }3
+    }
     draw(){
         fill(this.c.x,this.c.y,this.c.z,this.cS);
         noStroke();
         ellipse(this.pos.x,this.pos.y,this.s);
     }
     tick(){
-        this.ballCol();
-        this.walls();
-        if(vor==false||b){
-            this.move();
-            this.vorT=false;
-        }else{
-            this.vorMov();
+        if(!b){
+            this.ballCol();
+            this.walls();
+            if(vor==false){
+                this.move();
+                this.vorT=false;
+            }else if(!b){
+                console.log(vor.satelitePoints);
+                this.vorMov();
+            }
+            this.draw();
+            bT++;
+            console.log(bT);
+            let tmpT=50;
+            if(bT>tmpT-1){b=true;throw("t"+tmpT);}
+            
         }
-        this.draw();
     }
 }
 
